@@ -4,6 +4,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 import EuroSymbolIcon from '@mui/icons-material/EuroSymbol'
 import SavingsIcon from '@mui/icons-material/Savings'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout'
 import { PALLETE_LIGHT } from '../constants/pallete'
 
 export const NumberDisplayer = (props) => {
@@ -17,13 +18,15 @@ export const NumberDisplayer = (props) => {
         return <SavingsIcon sx={{ color: PALLETE_LIGHT.DEFAULT, margin: '5px' }} />
       case 'budget':
         return <CreditCardIcon sx={{ color: PALLETE_LIGHT.DEFAULT, margin: '5px' }} />
+      case 'expense':
+        return <ShoppingCartCheckoutIcon sx={{ color: PALLETE_LIGHT.DEFAULT, margin: '5px' }} />
       default:
         return <AccountBalanceWalletIcon sx={{ color: PALLETE_LIGHT.DEFAULT, margin: '5px' }} />
     }
   }
 
   return (
-    <Paper elevation={1} sx={{ margin: '1rem', padding: '0.5rem', width: '8rem' }}>
+    <Paper elevation={1} sx={{ margin: '1rem', padding: '0.5rem', width: '12rem', height: '7rem' }}>
       <Grid item>
         <Stack spacing={1}>
           <Box textAlign={'start'}>

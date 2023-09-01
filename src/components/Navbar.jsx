@@ -20,7 +20,7 @@ export const Navbar = (props) => {
       sx={{ background: PALLETE_LIGHT.NAVBAR, padding: '5px', minHeight: '40px' }}
     >
       <Grid item>
-        <Button onClick={handleOnClick}> Home </Button>
+        <Button onClick={handleOnClick}>Home</Button>
       </Grid>
       <Grid item>
         <AccountMenu signOut={signOut} user={user} />

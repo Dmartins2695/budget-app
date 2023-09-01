@@ -14,11 +14,9 @@ type Items @model  @auth(rules: [{ allow: owner }]){
   value: Float!
 }
 
-type Budget @model  @auth(rules: [{ allow: owner }]){
+type Balance @model @auth(rules: [{ allow: owner }]){
   id: ID!
   type: String!
-  store: String!
-  details: String!
   value: Float!
 }
 

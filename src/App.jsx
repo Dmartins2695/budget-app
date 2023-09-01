@@ -5,18 +5,21 @@ import '@aws-amplify/ui-react/styles.css'
 
 import awsExports from './aws-exports'
 import { Home } from './pages/Home'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { PALLETE } from './constants/pallete'
 
 Amplify.configure(awsExports)
 
 function App({ signOut, user }) {
   return (
     <Router>
+      <Navbar signOut={signOut} user={user} />
       <Routes>
         <Route path='/home' element={<Home signOut={signOut} user={user} />} />
-        <Route path='/settings' element={<Home signOut={signOut} user={user} />} />
-        <Route path='/' element={<Home signOut={signOut} user={user} />} />
-        <Route path='/*' element={<Home signOut={signOut} user={user} />} />
+        <Route path='/settings' element={<div>Settings</div>} />
+        <Route exact path='/' element={<Navigate to='/home' />} />
+        <Route path='/*' element={<Navigate to='/home' />} />
       </Routes>
     </Router>
   )

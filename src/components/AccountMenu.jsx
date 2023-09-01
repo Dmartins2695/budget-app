@@ -10,11 +10,13 @@ import Tooltip from '@mui/material/Tooltip'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import { getRandomColor } from '../functions/utils'
+import { useNavigate } from 'react-router-dom'
 
 export const AccountMenu = (props) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const { user, signOut } = props
+  const navigate = useNavigate()
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
@@ -23,6 +25,7 @@ export const AccountMenu = (props) => {
   }
 
   const handleSettings = () => {
+    navigate('/settings')
     handleClose()
   }
 
@@ -43,7 +46,7 @@ export const AccountMenu = (props) => {
             aria-haspopup='true'
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 40, height: 40 }}>{user.attributes.email.charAt(0)}</Avatar>
+            <Avatar sx={{ width: 40, height: 40 }}>{user.attributes.email.charAt(0).toUpperCase()}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>

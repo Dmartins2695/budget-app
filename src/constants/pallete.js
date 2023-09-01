@@ -1,10 +1,26 @@
-export const PALLETE = Object.freeze({
+export const PALLETE_LIGHT = Object.freeze({
+  NAVBAR: '#188B85',
+  PRIMARY: '#DFEFEF',
+  SECONDARY: '#39393C',
+  TERTIARY: '#23263B',
+  QUARTERNARY: '#352B50',
+  NEGATIVE: '#e84275',
+  POSITIVE: '#00CDAA',
+  ORANGE: '#FFCC9E',
+  DEEP_ORANGE: '#F1AA57',
+  ARROW: '#C8C7CD',
+  BACKGROUND: '#F7F7FA',
+  TABLE_ROW: '#FFFFFF'
+})
+
+export const PALLETE_DARK = Object.freeze({
   NAVBAR: '#3EC3D5',
-  SIDEBAR: '#23263B',
-  NEGATIVE: '#FF5460',
-  POSITIVE: '#40DC65',
+  NEGATIVE: '#d62b70',
+  POSITIVE: '#19ceb3',
   ARROW: '#C8C7CD',
   DATE: '#E1E0E6',
   BACKGROUND: '#F7F7FA',
-  TABLE_ROW: '#FFFFFF'
+  TABLE_ROW: '#FFFFFF',
+  PRIMARY: '',
+  SECONDARY: ''
 })

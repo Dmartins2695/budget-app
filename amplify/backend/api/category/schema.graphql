@@ -1,0 +1,25 @@
+type Category @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  name: String!
+  budget: Float!
+  balance: Float!
+  items: [Items] @hasMany
+}
+
+type Items @model  @auth(rules: [{ allow: owner }]){
+  id: ID!
+  name: String!
+  store: String!
+  details: String!
+  value: Float!
+}
+
+type Budget @model  @auth(rules: [{ allow: owner }]){
+  id: ID!
+  type: String!
+  store: String!
+  details: String!
+  value: Float!
+}
+
+

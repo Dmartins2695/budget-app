@@ -1,0 +1,10 @@
+export const PALLETE = Object.freeze({
+  NAVBAR: '#3EC3D5',
+  SIDEBAR: '#23263B',
+  NEGATIVE: '#FF5460',
+  POSITIVE: '#40DC65',
+  ARROW: '#C8C7CD',
+  DATE: '#E1E0E6',
+  BACKGROUND: '#F7F7FA',
+  TABLE_ROW: '#FFFFFF'
+})

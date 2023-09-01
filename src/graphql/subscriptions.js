@@ -157,16 +157,14 @@ export const onDeleteItems = /* GraphQL */ `
     }
   }
 `;
-export const onCreateBudget = /* GraphQL */ `
-  subscription OnCreateBudget(
-    $filter: ModelSubscriptionBudgetFilterInput
+export const onCreateBalance = /* GraphQL */ `
+  subscription OnCreateBalance(
+    $filter: ModelSubscriptionBalanceFilterInput
     $owner: String
   ) {
-    onCreateBudget(filter: $filter, owner: $owner) {
+    onCreateBalance(filter: $filter, owner: $owner) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt
@@ -175,16 +173,14 @@ export const onCreateBudget = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateBudget = /* GraphQL */ `
-  subscription OnUpdateBudget(
-    $filter: ModelSubscriptionBudgetFilterInput
+export const onUpdateBalance = /* GraphQL */ `
+  subscription OnUpdateBalance(
+    $filter: ModelSubscriptionBalanceFilterInput
     $owner: String
   ) {
-    onUpdateBudget(filter: $filter, owner: $owner) {
+    onUpdateBalance(filter: $filter, owner: $owner) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt
@@ -193,16 +189,14 @@ export const onUpdateBudget = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteBudget = /* GraphQL */ `
-  subscription OnDeleteBudget(
-    $filter: ModelSubscriptionBudgetFilterInput
+export const onDeleteBalance = /* GraphQL */ `
+  subscription OnDeleteBalance(
+    $filter: ModelSubscriptionBalanceFilterInput
     $owner: String
   ) {
-    onDeleteBudget(filter: $filter, owner: $owner) {
+    onDeleteBalance(filter: $filter, owner: $owner) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt

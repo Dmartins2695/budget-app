@@ -157,16 +157,14 @@ export const deleteItems = /* GraphQL */ `
     }
   }
 `;
-export const createBudget = /* GraphQL */ `
-  mutation CreateBudget(
-    $input: CreateBudgetInput!
-    $condition: ModelBudgetConditionInput
+export const createBalance = /* GraphQL */ `
+  mutation CreateBalance(
+    $input: CreateBalanceInput!
+    $condition: ModelBalanceConditionInput
   ) {
-    createBudget(input: $input, condition: $condition) {
+    createBalance(input: $input, condition: $condition) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt
@@ -175,16 +173,14 @@ export const createBudget = /* GraphQL */ `
     }
   }
 `;
-export const updateBudget = /* GraphQL */ `
-  mutation UpdateBudget(
-    $input: UpdateBudgetInput!
-    $condition: ModelBudgetConditionInput
+export const updateBalance = /* GraphQL */ `
+  mutation UpdateBalance(
+    $input: UpdateBalanceInput!
+    $condition: ModelBalanceConditionInput
   ) {
-    updateBudget(input: $input, condition: $condition) {
+    updateBalance(input: $input, condition: $condition) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt
@@ -193,16 +189,14 @@ export const updateBudget = /* GraphQL */ `
     }
   }
 `;
-export const deleteBudget = /* GraphQL */ `
-  mutation DeleteBudget(
-    $input: DeleteBudgetInput!
-    $condition: ModelBudgetConditionInput
+export const deleteBalance = /* GraphQL */ `
+  mutation DeleteBalance(
+    $input: DeleteBalanceInput!
+    $condition: ModelBalanceConditionInput
   ) {
-    deleteBudget(input: $input, condition: $condition) {
+    deleteBalance(input: $input, condition: $condition) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt

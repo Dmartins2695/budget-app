@@ -17,7 +17,7 @@ export const Navbar = (props) => {
       justifyContent={'flex-end'}
       alignContent={'center'}
       alignItems={'center'}
-      sx={{ background: PALLETE_LIGHT.NAVBAR, padding: '5px', minHeight: '40px' }}
+      sx={{ background: PALLETE_LIGHT.DEFAULT, padding: '5px', minHeight: '40px' }}
     >
       <Grid item>
         <Button onClick={handleOnClick}>Home</Button>

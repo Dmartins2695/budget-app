@@ -1,5 +1,5 @@
 export const PALLETE_LIGHT = Object.freeze({
-  NAVBAR: '#188B85',
+  DEFAULT: '#188B85',
   PRIMARY: '#DFEFEF',
   SECONDARY: '#39393C',
   TERTIARY: '#23263B',

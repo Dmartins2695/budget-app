@@ -97,13 +97,11 @@ export const listItems = /* GraphQL */ `
     }
   }
 `;
-export const getBudget = /* GraphQL */ `
-  query GetBudget($id: ID!) {
-    getBudget(id: $id) {
+export const getBalance = /* GraphQL */ `
+  query GetBalance($id: ID!) {
+    getBalance(id: $id) {
       id
       type
-      store
-      details
       value
       createdAt
       updatedAt
@@ -112,18 +110,16 @@ export const getBudget = /* GraphQL */ `
     }
   }
 `;
-export const listBudgets = /* GraphQL */ `
-  query ListBudgets(
-    $filter: ModelBudgetFilterInput
+export const listBalances = /* GraphQL */ `
+  query ListBalances(
+    $filter: ModelBalanceFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBudgets(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listBalances(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         type
-        store
-        details
         value
         createdAt
         updatedAt

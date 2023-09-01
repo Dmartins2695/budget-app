@@ -7,7 +7,7 @@ import awsExports from './aws-exports'
 import { Home } from './pages/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import { PALLETE } from './constants/pallete'
+import { NumberDisplayer } from './components/NumberDisplayer'
 
 Amplify.configure(awsExports)
 
@@ -18,6 +18,7 @@ function App({ signOut, user }) {
       <Routes>
         <Route path='/home' element={<Home signOut={signOut} user={user} />} />
         <Route path='/settings' element={<div>Settings</div>} />
+        <Route path='/tester' element={<NumberDisplayer />} />
         <Route exact path='/' element={<Navigate to='/home' />} />
         <Route path='/*' element={<Navigate to='/home' />} />
       </Routes>

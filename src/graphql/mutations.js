@@ -18,6 +18,8 @@ export const createCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -27,6 +29,7 @@ export const createCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -51,6 +54,8 @@ export const updateCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -60,6 +65,7 @@ export const updateCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -84,6 +90,8 @@ export const deleteCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -93,6 +101,7 @@ export const deleteCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -111,6 +120,8 @@ export const createItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -130,6 +141,8 @@ export const updateItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -149,6 +162,8 @@ export const deleteItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -164,6 +179,7 @@ export const createBalance = /* GraphQL */ `
   ) {
     createBalance(input: $input, condition: $condition) {
       id
+      title
       type
       value
       createdAt
@@ -180,6 +196,7 @@ export const updateBalance = /* GraphQL */ `
   ) {
     updateBalance(input: $input, condition: $condition) {
       id
+      title
       type
       value
       createdAt
@@ -196,6 +213,7 @@ export const deleteBalance = /* GraphQL */ `
   ) {
     deleteBalance(input: $input, condition: $condition) {
       id
+      title
       type
       value
       createdAt

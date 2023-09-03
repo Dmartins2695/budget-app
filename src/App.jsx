@@ -4,10 +4,11 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 
 import awsExports from './aws-exports'
-import { Home } from './pages/Home'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { Home } from './pages/home/Home'
+import { Category } from './pages/category/Category'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import { NumberDisplayer } from './components/NumberDisplayer'
+import * as React from 'react'
 
 Amplify.configure(awsExports)
 
@@ -18,7 +19,8 @@ function App({ signOut, user }) {
       <Routes>
         <Route path='/home' element={<Home signOut={signOut} user={user} />} />
         <Route path='/settings' element={<div>Settings</div>} />
-        <Route path='/tester' element={<NumberDisplayer />} />
+        <Route path='/category' element={<Category />} />
+        <Route path='/tester' element={<div />} />
         <Route exact path='/' element={<Navigate to='/home' />} />
         <Route path='/*' element={<Navigate to='/home' />} />
       </Routes>

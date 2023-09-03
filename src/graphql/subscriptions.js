@@ -18,6 +18,8 @@ export const onCreateCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -27,6 +29,7 @@ export const onCreateCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -51,6 +54,8 @@ export const onUpdateCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -60,6 +65,7 @@ export const onUpdateCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -84,6 +90,8 @@ export const onDeleteCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -93,6 +101,7 @@ export const onDeleteCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -111,6 +120,8 @@ export const onCreateItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -130,6 +141,8 @@ export const onUpdateItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -149,6 +162,8 @@ export const onDeleteItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -164,6 +179,7 @@ export const onCreateBalance = /* GraphQL */ `
   ) {
     onCreateBalance(filter: $filter, owner: $owner) {
       id
+      title
       type
       value
       createdAt
@@ -180,6 +196,7 @@ export const onUpdateBalance = /* GraphQL */ `
   ) {
     onUpdateBalance(filter: $filter, owner: $owner) {
       id
+      title
       type
       value
       createdAt
@@ -196,6 +213,7 @@ export const onDeleteBalance = /* GraphQL */ `
   ) {
     onDeleteBalance(filter: $filter, owner: $owner) {
       id
+      title
       type
       value
       createdAt

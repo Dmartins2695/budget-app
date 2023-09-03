@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material'
 import './home.css'
-import { NumberDisplayer } from '../components/NumberDisplayer'
+import { NumberDisplayer } from '../../components/NumberDisplayer'
 
 export const Home = (props) => {
   return (

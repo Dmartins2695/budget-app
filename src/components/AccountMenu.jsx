@@ -11,6 +11,7 @@ import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import { getRandomColor } from '../functions/utils'
 import { useNavigate } from 'react-router-dom'
+import { Category } from '@mui/icons-material'
 
 export const AccountMenu = (props) => {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -32,6 +33,11 @@ export const AccountMenu = (props) => {
   const handleLogout = () => {
     handleClose()
     signOut()
+  }
+
+  const handleCategory = () => {
+    navigate('/category')
+    handleClose()
   }
 
   return (
@@ -85,6 +91,12 @@ export const AccountMenu = (props) => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+        <MenuItem onClick={handleCategory}>
+          <ListItemIcon>
+            <Category fontSize='small' />
+          </ListItemIcon>
+          Category
+        </MenuItem>
         <MenuItem onClick={handleSettings}>
           <ListItemIcon>
             <Settings fontSize='small' />

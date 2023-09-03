@@ -4,6 +4,7 @@ type Category @model @auth(rules: [{ allow: owner }]) {
   budget: Float!
   balance: Float!
   items: [Items] @hasMany
+  keywords: [String]
 }
 
 type Items @model  @auth(rules: [{ allow: owner }]){
@@ -12,6 +13,8 @@ type Items @model  @auth(rules: [{ allow: owner }]){
   store: String!
   details: String!
   value: Float!
+  date: String!
+  type: String!
 }
 
 type Balance @model @auth(rules: [{ allow: owner }]){

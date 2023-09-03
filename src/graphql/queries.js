@@ -15,6 +15,8 @@ export const getCategory = /* GraphQL */ `
           store
           details
           value
+          date
+          type
           createdAt
           updatedAt
           categoryItemsId
@@ -24,6 +26,7 @@ export const getCategory = /* GraphQL */ `
         nextToken
         __typename
       }
+      keywords
       createdAt
       updatedAt
       owner
@@ -47,6 +50,7 @@ export const listCategories = /* GraphQL */ `
           nextToken
           __typename
         }
+        keywords
         createdAt
         updatedAt
         owner
@@ -65,6 +69,8 @@ export const getItems = /* GraphQL */ `
       store
       details
       value
+      date
+      type
       createdAt
       updatedAt
       categoryItemsId
@@ -86,6 +92,8 @@ export const listItems = /* GraphQL */ `
         store
         details
         value
+        date
+        type
         createdAt
         updatedAt
         categoryItemsId
@@ -101,6 +109,7 @@ export const getBalance = /* GraphQL */ `
   query GetBalance($id: ID!) {
     getBalance(id: $id) {
       id
+      title
       type
       value
       createdAt
@@ -119,6 +128,7 @@ export const listBalances = /* GraphQL */ `
     listBalances(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        title
         type
         value
         createdAt

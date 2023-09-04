@@ -1,3 +1,10 @@
+import { Box } from '@mui/material'
+import { Datatable } from '../../components/Datatable'
+import { useEffect, useState } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { listCategories } from '../../graphql/queries'
+import { createCategory } from '../../graphql/mutations'
+
 const columns = [
   { field: 'id', headerName: 'ID', width: 150 },
   {
@@ -29,44 +36,6 @@ const columns = [
   }
 ]
 
-const defaultRows = [
-  {
-    id: '1',
-    name: 'Monthly Groceries',
-    budget: 500.0,
-    balance: 375.0,
-    items: []
-  },
-  {
-    id: '2',
-    name: 'Vacation Fund',
-    budget: 1000.0,
-    balance: 750.0,
-    items: []
-  },
-  {
-    id: '3',
-    name: 'Home Renovation',
-    budget: 5000.0,
-    balance: 3000.0,
-    items: []
-  },
-  {
-    id: '4',
-    name: 'Emergency Fund',
-    budget: 2000.0,
-    balance: 2000.0,
-    items: []
-  },
-  {
-    id: '5',
-    name: 'Tech Gadgets',
-    budget: 1500.0,
-    balance: 1000.0,
-    items: []
-  }
-]
-
 const items = [
   {
     id: 1,
@@ -95,5 +64,41 @@ const items = [
   }
 ]
 export const Category = (props) => {
-  return <div></div>
+  const [rows, setRows] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const categories = await API.graphql(graphqlOperation(listCategories))
+        const categoriesList = categories.data.listCategories.items
+        return categoriesList
+      } catch (e) {
+        console.log(e)
+      }
+    }
+
+    fetchData().then((data) => setRows(data))
+  }, [])
+
+  const saveToDataBase = (modifiedRows, newRow) => {
+    const saveData = async (newRow) => {
+      try {
+        newRow.balance = parseFloat('0')
+        delete newRow.isNew
+        return await API.graphql(graphqlOperation(createCategory, { input: newRow }))
+      } catch (e) {}
+    }
+    if (rows !== modifiedRows) {
+      newRow.id = modifiedRows.length - 1
+      saveData(newRow).then((r) => console.log(r))
+    }
+  }
+
+  console.log(rows)
+
+  return (
+    <Box>
+      <Datatable rows={rows} columns={columns} saveToDataBase={saveToDataBase} />
+    </Box>
+  )
 }

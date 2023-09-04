@@ -1,7 +1,7 @@
 import { DataGrid, GridActionsCellItem, GridRowEditStopReasons, GridRowModes, GridToolbarContainer } from '@mui/x-data-grid'
 import { Box, Button } from '@mui/material'
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add'
 import SaveIcon from '@mui/icons-material/Save'
 import CancelIcon from '@mui/icons-material/Close'
@@ -30,10 +30,10 @@ const EditToolbar = (props) => {
 }
 
 export const Datatable = (props) => {
-  const [rows, setRows] = useState(props.rows || [])
+  const [rows, setRows] = useState([])
   const [rowModesModel, setRowModesModel] = useState({})
 
-  const { saveToDataBase, deleteFromDatabase, updateToDatabase } = props
+  const { saveToDataBase, deleteFromDatabase } = props
 
   const handleRowEditStop = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
@@ -43,7 +43,6 @@ export const Datatable = (props) => {
 
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } })
-    updateToDatabase(rows)
   }
 
   const handleSaveClick = (id) => () => {
@@ -105,6 +104,18 @@ export const Datatable = (props) => {
       ]
     }
   }
+
+  useEffect(() => {
+    if (rows.at(rows.length - 1) && !rows.at(rows.length - 1).isNew) {
+      saveToDataBase(rows, rows.at(rows.length - 1))
+    }
+  }, [rows])
+
+  useEffect(() => {
+    setRows(props.rows)
+  }, [props.rows])
+
+  console.log(props)
 
   return (
     <Box
